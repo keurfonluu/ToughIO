@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Import and visualize simulation outputs in PyVista &mdash; toughio 1.3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Reference" href="../../api/index.html" />
+    <link rel="prev" title="Generate model parameters input file" href="3_generate_model_parameters_input_file.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> toughio
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../gallery/index.html">Gallery</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">CO<sub>2</sub> leakage along a fault</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1_generate_mesh_in_python_with_gmsh.html">Generate mesh in Python with Gmsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_generate_mesh_and_incon_files.html">Generate MESH and INCON files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_generate_model_parameters_input_file.html">Generate model parameters input file</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Import and visualize simulation outputs in PyVista</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toughio</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../gallery/index.html">Gallery</a> &raquo;</li>
+        
+          <li><a href="index.html">CO<sub>2</sub> leakage along a fault</a> &raquo;</li>
+        
+      <li>Import and visualize simulation outputs in PyVista</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/examples/co2_leakage_along_a_fault/4_import_and_visualize_simulation_outputs_in_pyvista.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-co2-leakage-along-a-fault-4-import-and-visualize-simulation-outputs-in-pyvista-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="import-and-visualize-simulation-outputs-in-pyvista">
+<span id="sphx-glr-examples-co2-leakage-along-a-fault-4-import-and-visualize-simulation-outputs-in-pyvista-py"></span><h1>Import and visualize simulation outputs in PyVista<a class="headerlink" href="#import-and-visualize-simulation-outputs-in-pyvista" title="Permalink to this headline">¶</a></h1>
+<p>Once the TOUGH simulation has ended, there is not much things left to do with <code class="xref py py-mod docutils literal notranslate"><span class="pre">toughio</span></code>. We can either:</p>
+<ul class="simple">
+<li><p>Run the command <code class="code docutils literal notranslate"><span class="pre">toughio-export</span> <span class="pre">OUTPUT_ELEME.csv</span> <span class="pre">-m</span> <span class="pre">mesh.pickle</span></code> and drag-and-drop the generated VTK file in a compatible visualization software (e.g. ParaView),</p></li>
+</ul>
+<img alt="../../_images/co2_leakage_along_a_fault_paraview.png" src="../../_images/co2_leakage_along_a_fault_paraview.png" />
+<ul class="simple">
+<li><p>Import the output file <em>OUTPUT_ELEME.csv</em> in Python using <code class="xref py py-mod docutils literal notranslate"><span class="pre">toughio</span></code> (two-liners) and do whatever post-processing we want and need.</p></li>
+</ul>
+<p>This example briefly shows how to import TOUGH output file using <code class="xref py py-mod docutils literal notranslate"><span class="pre">toughio</span></code> and how to visualize it with <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvista</span></code> (adapted from <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvista</span></code>’s <a class="reference external" href="https://docs.pyvista.org/">documentation</a>).</p>
+<p>First, we unpickle the mesh file and import the last time step of the output file (<cite>OUTPUT_ELEME.csv</cite> in TOUGH3, <cite>OUTPUT</cite> in TOUGH2).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">toughio</span>
+
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">toughio</span><span class="o">.</span><span class="n">read_mesh</span><span class="p">(</span><span class="s2">&quot;mesh.pickle&quot;</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">read_output</span><span class="p">(</span><span class="s2">&quot;OUTPUT_ELEME.csv&quot;</span><span class="p">,</span> <span class="n">time_step</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once output data have been imported, we can simply call the method <a class="reference internal" href="../../api/mesh.html#toughio.Mesh.to_pyvista" title="toughio.Mesh.to_pyvista"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toughio.Mesh.to_pyvista()</span></code></a> to convert the mesh to a <code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code> object that can be processed by <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvista</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s2">&quot;document&quot;</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="o">.</span><span class="n">to_pyvista</span><span class="p">(),</span>
+    <span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;SAT_G&quot;</span><span class="p">,</span>
+    <span class="n">stitle</span><span class="o">=</span><span class="s2">&quot;Gas saturation&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis_r&quot;</span><span class="p">,</span>
+    <span class="n">clim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="n">n_colors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">edge_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">scalar_bar_args</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;position_x&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+        <span class="s2">&quot;position_y&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="s2">&quot;vertical&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;n_labels&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="s2">&quot;fmt&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title_font_size&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;font_family&quot;</span><span class="p">:</span> <span class="s2">&quot;arial&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;shadow&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show_grid</span><span class="p">(</span>
+    <span class="n">show_xaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">show_yaxis</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">show_zaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">,</span>
+    <span class="n">zlabel</span><span class="o">=</span><span class="s2">&quot;Elevation (m)&quot;</span><span class="p">,</span>
+    <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+    <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;arial&quot;</span><span class="p">,</span>
+    <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">view_xz</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="4 import and visualize simulation outputs in pyvista" class="sphx-glr-single-img" src="../../_images/sphx_glr_4_import_and_visualize_simulation_outputs_in_pyvista_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(1005.0, -5504.599664394268, -1500.0),
+ (1005.0, 0.5, -1500.0),
+ (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.771 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-co2-leakage-along-a-fault-4-import-and-visualize-simulation-outputs-in-pyvista-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/5b1b8ac66cb420a845b93ce7c236447d/4_import_and_visualize_simulation_outputs_in_pyvista.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">4_import_and_visualize_simulation_outputs_in_pyvista.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f18d291a9f7259968f7bef8d413d524e/4_import_and_visualize_simulation_outputs_in_pyvista.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">4_import_and_visualize_simulation_outputs_in_pyvista.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../api/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3_generate_model_parameters_input_file.html" class="btn btn-neutral float-left" title="Generate model parameters input file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Keurfon Luu
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Generate mesh in Python with Gmsh &mdash; toughio 1.3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Generate MESH and INCON files" href="2_generate_mesh_and_incon_files.html" />
+    <link rel="prev" title="CO2 leakage along a fault" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> toughio
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../gallery/index.html">Gallery</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">CO<sub>2</sub> leakage along a fault</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Generate mesh in Python with Gmsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_generate_mesh_and_incon_files.html">Generate MESH and INCON files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_generate_model_parameters_input_file.html">Generate model parameters input file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_import_and_visualize_simulation_outputs_in_pyvista.html">Import and visualize simulation outputs in PyVista</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toughio</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../gallery/index.html">Gallery</a> &raquo;</li>
+        
+          <li><a href="index.html">CO<sub>2</sub> leakage along a fault</a> &raquo;</li>
+        
+      <li>Generate mesh in Python with Gmsh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/examples/co2_leakage_along_a_fault/1_generate_mesh_in_python_with_gmsh.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-co2-leakage-along-a-fault-1-generate-mesh-in-python-with-gmsh-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="generate-mesh-in-python-with-gmsh">
+<span id="sphx-glr-examples-co2-leakage-along-a-fault-1-generate-mesh-in-python-with-gmsh-py"></span><h1>Generate mesh in Python with Gmsh<a class="headerlink" href="#generate-mesh-in-python-with-gmsh" title="Permalink to this headline">¶</a></h1>
+<p>This examples describes how to generate a mesh using Gmsh in Python. It requires <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygmsh</span></code> to be installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pygmsh --user
+</pre></div>
+</div>
+<p>The mesh can also be generated from scratch directly in Gmsh either using its GUI and/or its internal scripting language.</p>
+<p>Note that <code class="xref py py-mod docutils literal notranslate"><span class="pre">toughio</span></code> is not required at this preliminary stage of the pre-processing. This example only intends to show how the mesh used in this sample problem has been generated. The user is free to use any meshing software as long as the mesh format is supported by <code class="xref py py-mod docutils literal notranslate"><span class="pre">toughio</span></code> (through <code class="xref py py-mod docutils literal notranslate"><span class="pre">meshio</span></code>).</p>
+<p>First, we import <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygmsh</span></code>, and initialize a <code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.Geometry</span></code> object that will be used to construct all the geometrical entities of the model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pygmsh</span>
+
+<span class="n">geo</span> <span class="o">=</span> <span class="n">pygmsh</span><span class="o">.</span><span class="n">built_in</span><span class="o">.</span><span class="n">Geometry</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We can define a bunch of useful variables such as the characteristic length or some parameters to characterize the model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lc</span> <span class="o">=</span> <span class="mf">100.0</span>                              <span class="c1"># Characteristic length of mesh</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2000.0</span>                <span class="c1"># X axis boundaries</span>
+<span class="n">zmin</span><span class="p">,</span> <span class="n">zmax</span> <span class="o">=</span> <span class="o">-</span><span class="mf">500.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2500.0</span>            <span class="c1"># Z axis boundaries</span>
+
+<span class="n">inj_z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1500.0</span>                         <span class="c1"># Depth of injection</span>
+<span class="n">flt_offset</span> <span class="o">=</span> <span class="mf">50.0</span>                       <span class="c1"># Offset of fault</span>
+<span class="n">flt_thick</span> <span class="o">=</span> <span class="mf">10.0</span>                        <span class="c1"># Thickness of fault</span>
+<span class="n">tana</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">80.0</span><span class="p">))</span>   <span class="c1"># Tangeant of dipping angle of fault</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="mf">500.0</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">flt_thick</span>          <span class="c1"># Distance from injection point (0.0, -1500.0) to left wall of fault</span>
+
+<span class="n">bnd_thick</span> <span class="o">=</span> <span class="mf">10.0</span>                        <span class="c1"># Thickness of boundary elements</span>
+</pre></div>
+</div>
+<p>We start by defining the geometrical entity representing the fault.
+The fault is represented as a finite-thickness element that intersects all the layers of the model.
+To ensure conformity of the final mesh, each wall of the fault is represented by a segmented line where the positions of the nodes correspond to the intersections of the hanging (left) and foot (right) walls with the different layers.
+Note that the foot wall is inverted so that the fault entity forms a closed rectangular loop.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">depths</span> <span class="o">=</span> <span class="p">[</span><span class="n">zmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span><span class="p">,</span> <span class="n">zmax</span><span class="p">]</span>
+<span class="n">fault_left</span> <span class="o">=</span> <span class="p">[[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">depths</span><span class="p">]</span>
+
+<span class="n">depths</span> <span class="o">=</span> <span class="p">[</span><span class="n">zmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="n">zmax</span><span class="p">]</span>
+<span class="n">fault_right</span> <span class="o">=</span> <span class="p">[[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">depths</span><span class="p">]</span>
+
+<span class="n">fault</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="n">fault_left</span> <span class="o">+</span> <span class="n">fault_right</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we define the aquifer located at the left side of the fault.
+To refine the mesh in the injection zone, the characteristic length of each layer entity is increased the farther we get from the injection point.
+Note that layers are defined such that their characteristic lengths are increasing. This is because Gmsh keeps the first node defined in the geometry in case it detects duplicated nodes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cenaq_left</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1450.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1550.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">capro_top_left</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1300.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1450.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">capro_bot_left</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1550.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1700.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">uppaq_left</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmin</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1300.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">basaq_left</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1700.0</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Likewise, we also define the aquifer located at the right side of the fault.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cenaq_right</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1450.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1550.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">capro_top_right</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1300.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1450.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">capro_bot_right</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1550.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1700.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">uppaq_right</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmin</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1300.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">basaq_right</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">1700.0</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span><span class="o">-</span><span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, we define the boundary elements.
+In this sample problem, a no-flow boundary condition is imposed on the left side of the model (default in TOUGH), and Dirichlet boundary conditions are imposed elsewhere.
+Thus, physical boundary elements must be defined at the top, right and bottom sides of the model.
+Similarly to the fault entity, boundary entities are segmented to ensure conformity of the final mesh.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bound_right</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1700.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1550.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1450.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.0</span> <span class="o">+</span> <span class="n">flt_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">bound_top</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmin</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmin</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="n">zmin</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="n">zmin</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmin</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">zmin</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmin</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">zmin</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">zmin</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">bound_bot</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span> <span class="o">-</span> <span class="n">inj_z</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmax</span> <span class="o">+</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="n">zmax</span> <span class="o">-</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">-</span> <span class="n">bnd_thick</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span> <span class="o">+</span> <span class="n">flt_thick</span><span class="p">,</span> <span class="n">zmax</span> <span class="o">-</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">dist</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span> <span class="o">-</span> <span class="n">inj_z</span> <span class="o">-</span> <span class="n">bnd_thick</span><span class="p">)</span> <span class="o">/</span> <span class="n">tana</span><span class="p">,</span> <span class="n">zmax</span> <span class="o">-</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">zmax</span> <span class="o">-</span> <span class="n">bnd_thick</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="n">lc</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we assign rock types/materials as Gmsh physical properties.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">geo</span><span class="o">.</span><span class="n">add_physical</span><span class="p">(</span>
+    <span class="n">entities</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">uppaq_left</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">uppaq_right</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;UPPAQ&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">geo</span><span class="o">.</span><span class="n">add_physical</span><span class="p">(</span>
+    <span class="n">entities</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">capro_top_left</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">capro_bot_left</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">capro_top_right</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">capro_bot_right</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CAPRO&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">geo</span><span class="o">.</span><span class="n">add_physical</span><span class="p">(</span>
+    <span class="n">entities</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">cenaq_left</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">cenaq_right</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CENAQ&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">geo</span><span class="o">.</span><span class="n">add_physical</span><span class="p">(</span>
+    <span class="n">entities</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">basaq_left</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">basaq_right</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;BASAQ&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">geo</span><span class="o">.</span><span class="n">add_physical</span><span class="p">(</span>
+    <span class="n">entities</span><span class="o">=</span><span class="n">fault</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;FAULT&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">geo</span><span class="o">.</span><span class="n">add_physical</span><span class="p">(</span>
+    <span class="n">entities</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">bound_right</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">bound_top</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+        <span class="n">bound_bot</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;BOUND&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we can generate the geometry file and import it into Gmsh to generate the final mesh.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mesh.geo&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">get_code</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Alternatively, the Gmsh mesh file can also be directly generated in Python by specifying the path to Gmsh executable (if Gmsh has not been added to the system PATH).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geo</span><span class="o">.</span><span class="n">add_raw_code</span><span class="p">(</span><span class="s2">&quot;Coherence;&quot;</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">pygmsh</span><span class="o">.</span><span class="n">generate_mesh</span><span class="p">(</span>
+    <span class="n">geo</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">prune_vertices</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">remove_lower_dim_cells</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">gmsh_path</span><span class="o">=</span><span class="s2">&quot;gmsh&quot;</span><span class="p">,</span>  <span class="c1"># Change the path here</span>
+    <span class="n">geo_filename</span><span class="o">=</span><span class="s2">&quot;mesh.geo&quot;</span><span class="p">,</span>
+    <span class="n">msh_filename</span><span class="o">=</span><span class="s2">&quot;mesh.msh&quot;</span><span class="p">,</span>
+    <span class="n">mesh_file_type</span><span class="o">=</span><span class="s2">&quot;msh4&quot;</span><span class="p">,</span>
+    <span class="n">extra_gmsh_arguments</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;-smooth&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-optimize_netgen&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The generated mesh can be visualized in Python with <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvista</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s2">&quot;document&quot;</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="o">=</span><span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;mesh.msh&quot;</span><span class="p">),</span>
+    <span class="n">stitle</span><span class="o">=</span><span class="s2">&quot;Materials&quot;</span><span class="p">,</span>
+    <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">view_xy</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="1 generate mesh in python with gmsh" class="sphx-glr-single-img" src="../../_images/sphx_glr_1_generate_mesh_in_python_with_gmsh_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(1005.0, -1500.0, 5505.099325431202),
+ (1005.0, -1500.0, 0.0),
+ (0.0, 1.0, 0.0)]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.088 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-co2-leakage-along-a-fault-1-generate-mesh-in-python-with-gmsh-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/63e6fc27943783755535e4c8d94b8bc3/1_generate_mesh_in_python_with_gmsh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_generate_mesh_in_python_with_gmsh.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/63dce8a29a4f6d13d94e96ddab9a2160/1_generate_mesh_in_python_with_gmsh.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">1_generate_mesh_in_python_with_gmsh.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2_generate_mesh_and_incon_files.html" class="btn btn-neutral float-right" title="Generate MESH and INCON files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="CO2 leakage along a fault" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Keurfon Luu
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
