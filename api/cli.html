@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command line programs &mdash; toughio 1.3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Relative permeability and capillarity models" href="rpcap.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> toughio
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="io.html">Input and output files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html">Meshing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpcap.html">Relative permeability and capillarity models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Command line programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#co2tab">CO2TAB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#export">Export</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extract">Extract</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#merge">Merge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#save2incon">SAVE2INCON</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toughio</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>Command line programs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line-programs">
+<h1>Command line programs<a class="headerlink" href="#command-line-programs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="co2tab">
+<h2>CO2TAB<a class="headerlink" href="#co2tab" title="Permalink to this headline">¶</a></h2>
+<p><p>Write CO2TAB in target directory.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">toughio</span><span class="o">-</span><span class="n">co2tab</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="n">path</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>path</kbd></dt>
+<dd><p>directory path</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="export">
+<h2>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
+<p><p>Export TOUGH simulation results to a file for visualization.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">toughio</span><span class="o">-</span><span class="n">export</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">mesh</span> <span class="n">MESH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">time</span><span class="o">-</span><span class="n">step</span> <span class="n">TIME_STEP</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span> <span class="n">OUTPUT_FILE</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">-</span><span class="nb">format</span> <span class="p">{</span><span class="n">tecplot</span><span class="p">,</span><span class="n">vtk</span><span class="p">,</span><span class="n">vtu</span><span class="p">,</span><span class="n">xdmf</span><span class="p">}]</span>
+                      <span class="n">infile</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>infile</kbd></dt>
+<dd><p>TOUGH output file</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="Named Arguments">
+<h3>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>--mesh, -m</kbd></dt>
+<dd><p>pickled toughio.Mesh</p>
+</dd>
+<dt><kbd>--time-step, -t</kbd></dt>
+<dd><p>time step to export</p>
+</dd>
+<dt><kbd>--output-file, -o</kbd></dt>
+<dd><p>exported file</p>
+</dd>
+<dt><kbd>--file-format, -f</kbd></dt>
+<dd><p>Possible choices: tecplot, vtk, vtu, xdmf</p>
+<p>exported file format</p>
+<p>Default: “vtk”</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="extract">
+<h2>Extract<a class="headerlink" href="#extract" title="Permalink to this headline">¶</a></h2>
+<p><p>Extract results from TOUGH main output file and reformat as a TOUGH3 CSV output file.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">toughio</span><span class="o">-</span><span class="n">extract</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span> <span class="n">OUTPUT_FILE</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">-</span><span class="nb">format</span> <span class="p">{</span><span class="n">csv</span><span class="p">,</span><span class="n">tecplot</span><span class="p">,</span><span class="n">petrasim</span><span class="p">}]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">label</span><span class="o">-</span><span class="n">length</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}]</span> <span class="p">[</span><span class="o">--</span><span class="n">split</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">connection</span><span class="p">]</span>
+                       <span class="n">infile</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>infile</kbd></dt>
+<dd><p>TOUGH output file</p>
+</dd>
+<dt><kbd>mesh</kbd></dt>
+<dd><p>TOUGH MESH file (can be INFILE)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="Named Arguments">
+<h3>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>--output-file, -o</kbd></dt>
+<dd><p>TOUGH3 element output file</p>
+</dd>
+<dt><kbd>--file-format, -f</kbd></dt>
+<dd><p>Possible choices: csv, tecplot, petrasim</p>
+<p>exported file format</p>
+<p>Default: “csv”</p>
+</dd>
+<dt><kbd>--label-length, -l</kbd></dt>
+<dd><p>Possible choices: 5, 6, 7, 8, 9</p>
+<p>number of characters in cell labels</p>
+</dd>
+<dt><kbd>--split, -s</kbd></dt>
+<dd><p>write one file per time step</p>
+<p>Default: False</p>
+</dd>
+<dt><kbd>--connection, -c</kbd></dt>
+<dd><p>extract data related to connections</p>
+<p>Default: False</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="merge">
+<h2>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
+<p><p>Merge input file, MESH and/or INCON into a single file. The files must be in the same directory.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">toughio</span><span class="o">-</span><span class="n">merge</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="n">infile</span> <span class="n">outfile</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>infile</kbd></dt>
+<dd><p>TOUGH input file</p>
+</dd>
+<dt><kbd>outfile</kbd></dt>
+<dd><p>merged TOUGH input file</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="save2incon">
+<h2>SAVE2INCON<a class="headerlink" href="#save2incon" title="Permalink to this headline">¶</a></h2>
+<p><p>Convert a SAVE file to an INCON file.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">toughio</span><span class="o">-</span><span class="n">save2incon</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">reset</span><span class="p">]</span> <span class="n">infile</span> <span class="n">outfile</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>infile</kbd></dt>
+<dd><p>SAVE file to convert</p>
+</dd>
+<dt><kbd>outfile</kbd></dt>
+<dd><p>converted INCON file</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="Named Arguments">
+<h3>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>--reset, -r</kbd></dt>
+<dd><p>reset all counters</p>
+<p>Default: False</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="rpcap.html" class="btn btn-neutral float-left" title="Relative permeability and capillarity models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Keurfon Luu
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
