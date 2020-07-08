@@ -165,20 +165,13 @@
 </div>
 <div class="section" id="toughio">
 <h1>toughio<a class="headerlink" href="#toughio" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://github.com/keurfonluu/toughio/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-BSD--3--Clause-green" /></a> <a class="reference external" href="https://github.com/keurfonluu/toughio"><img alt="Stars" src="https://img.shields.io/github/stars/keurfonluu/toughio?logo=github" /></a> <a class="reference external" href="https://pypi.org/pypi/toughio/"><img alt="Pyversions" src="https://img.shields.io/pypi/pyversions/toughio.svg?style=flat" /></a> <a class="reference external" href="https://pypi.org/project/toughio"><img alt="Version" src="https://img.shields.io/pypi/v/toughio.svg?style=flat" /></a> <a class="reference external" href="https://pepy.tech/project/toughio"><img alt="Downloads" src="https://pepy.tech/badge/toughio" /></a> <a class="reference external" href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg?style=flat" /></a> <a class="reference external" href="https://www.codacy.com/manual/keurfonluu/toughio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=keurfonluu/toughio&amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://img.shields.io/codacy/grade/037f16f4e7544afbb1b99bf0d66df4a6.svg?style=flat" /></a> <a class="reference external" href="https://codecov.io/gh/keurfonluu/toughio"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/keurfonluu/toughio.svg?style=flat" /></a></p>
+<p><a class="reference external" href="https://github.com/keurfonluu/toughio/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-BSD--3--Clause-green" /></a> <a class="reference external" href="https://github.com/keurfonluu/toughio"><img alt="Stars" src="https://img.shields.io/github/stars/keurfonluu/toughio?logo=github" /></a> <a class="reference external" href="https://pypi.org/pypi/toughio/"><img alt="Pyversions" src="https://img.shields.io/pypi/pyversions/toughio.svg?style=flat" /></a> <a class="reference external" href="https://pypi.org/project/toughio"><img alt="Version" src="https://img.shields.io/pypi/v/toughio.svg?style=flat" /></a> <a class="reference external" href="https://pepy.tech/project/toughio"><img alt="Downloads" src="https://pepy.tech/badge/toughio" /></a> <a class="reference external" href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg?style=flat" /></a> <a class="reference external" href="https://www.codacy.com/manual/keurfonluu/toughio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=keurfonluu/toughio&amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://img.shields.io/codacy/grade/037f16f4e7544afbb1b99bf0d66df4a6.svg?style=flat" /></a> <a class="reference external" href="https://codecov.io/gh/keurfonluu/toughio"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/keurfonluu/toughio.svg?style=flat" /></a> <a class="reference external" href="https://keurfonluu.github.io/toughio/"><img alt="Travis" src="https://img.shields.io/travis/com/keurfonluu/toughio/master?label=docs" /></a></p>
 <p><a class="reference external" href="https://tough.lbl.gov/">TOUGH</a> (Transport Of Unsaturated Groundwater and Heat) is a general purpose numerical simulation software designed for fluid and heat flows of multiphase, multicomponent fluid mixtures in porous and fractured media developed at Lawrence Berkeley National Laboratory. It solves mass and energy balance equations that describe fluid and heat flow in multiphase and multicomponent systems. TOUGH handles all types of multiphase and multicomponent flow systems since the governing equations for fluid and heat flow have the same mathematical form. The nature and properties of fluid mixtures are described by thermophysical variables (e.g. density, viscosity, enthalpy) which are provided by an equation-of-state (EOS) module.</p>
-<p><strong>toughio</strong> is an open-source library that provides tools to
-facilitate pre- and post-processing for TOUGH using the latest Python
-standards. It aims to make setting up of a TOUGH simulation
-user-friendly by relying on existing well-established Python packages:</p>
+<p><strong>toughio</strong> is an open-source library that provides tools to facilitate pre- and post-processing for TOUGH using the latest Python standards. It aims to make setting up of a TOUGH simulation user-friendly by relying on existing well-established Python packages:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/">numpy</a>: vectorized calculation of
-N-dimensional arrays,</p></li>
-<li><p><a class="reference external" href="https://github.com/nschloe/meshio">meshio</a>: input/output
-for many mesh formats,</p></li>
-<li><p><a class="reference external" href="https://github.com/pyvista/pyvista">pyvista</a>: 3D plotting
-and mesh analysis through a streamlined interface for the
-Visualization Toolkit (VTK).</p></li>
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a>: vectorized calculation of N-dimensional arrays,</p></li>
+<li><p><a class="reference external" href="https://github.com/nschloe/meshio">meshio</a>: input/output for many mesh formats,</p></li>
+<li><p><a class="reference external" href="https://github.com/pyvista/pyvista">pyvista</a>: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK).</p></li>
 </ul>
 <p>Note that the results of a TOUGH simulation are sensitive to the quality of the mesh (ideally, it should satisfy the orthogonality condition). A mesh that contains too many ill-shaped cells can potentially lead to unexpected results although the simulation converged successfully. <strong>toughio</strong> does not verify the quality of the mesh which is left to the discretion of the user.</p>
 <div class="figure align-center" id="id1">
@@ -189,49 +182,36 @@ Visualization Toolkit (VTK).</p></li>
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <p>Meshing:</p>
 <ul class="simple">
-<li><p>Create simple 2D cylindric or 2D/3D structured meshes similarly to
-TOUGH’s built-in <em>MESHMAKER</em>,</p></li>
-<li><p>Import mesh generated by external softwares (e.g.
-<a class="reference external" href="https://www.3ds.com/products-services/simulia/products/abaqus/">Abaqus</a>,
-<a class="reference external" href="https://www.itascacg.com/software/flac3d">FLAC3D</a>,
-<a class="reference external" href="http://gmsh.info/">Gmsh</a>,
-<a class="reference external" href="https://meshing.lanl.gov/">LaGriT</a>),</p></li>
-<li><p>Export imported or generated mesh to a <em>MESH</em> file for TOUGH
-assuming
-<a class="reference external" href="https://www.quora.com/What-is-non-conformal-mesh-in-CFD">conformity</a>
-(and optionally write initial condition file <em>INCON</em>).</p></li>
+<li><p>Create simple 2D cylindric or 2D/3D structured meshes similarly to TOUGH’s built-in <em>MESHMAKER</em>,</p></li>
+<li><p>Import mesh generated by external softwares (e.g. <a class="reference external" href="https://www.3ds.com/products-services/simulia/products/abaqus/">Abaqus</a>, <a class="reference external" href="https://www.itascacg.com/software/flac3d">FLAC3D</a>, <a class="reference external" href="http://gmsh.info/">Gmsh</a>, <a class="reference external" href="https://meshing.lanl.gov/">LaGriT</a>),</p></li>
+<li><p>Export imported or generated mesh to a <em>MESH</em> file for TOUGH assuming <a class="reference external" href="https://www.quora.com/What-is-non-conformal-mesh-in-CFD">conformity</a> (and optionally write initial condition file <em>INCON</em>).</p></li>
 </ul>
 <p>Pre-processing:</p>
 <ul class="simple">
-<li><p>Easily add initial conditions, boundary conditions or other physical
-properties (e.g. porosity, permeability) using the convenient class <code class="docutils literal notranslate"><span class="pre">toughio.Mesh</span></code>,</p></li>
-<li><p>Import previous TOUGH simulation input file into Python or define
-simulation parameters in a human-readable and
-<a class="reference external" href="http://json.org/">JSON</a>able dictionary,</p></li>
+<li><p>Easily add initial conditions, boundary conditions or other physical properties (e.g. porosity, permeability) using the convenient class <code class="docutils literal notranslate"><span class="pre">toughio.Mesh</span></code>,</p></li>
+<li><p>Import previous TOUGH simulation input file into Python or define simulation parameters in a human-readable and <a class="reference external" href="http://json.org/">JSON</a>able dictionary,</p></li>
 <li><p>Export simulation parameters dictionary to a TOUGH input file.</p></li>
 </ul>
 <p>Post-processing:</p>
 <ul class="simple">
 <li><p>Import outputs of a TOUGH simulation into Python,</p></li>
-<li><p>Visualize results directly in Python using
-<a class="reference external" href="https://github.com/pyvista/pyvista">pyvista</a> or export
-the results to another format supported by
-<a class="reference external" href="https://github.com/nschloe/meshio">meshio</a> (e.g. VTK,
-Tecplot…),</p></li>
-<li><p>Create animations (GIF or MP4) or export results for all time steps
-to a XDMF file to be visualized in ParaView.</p></li>
+<li><p>Visualize results directly in Python using <a class="reference external" href="https://github.com/pyvista/pyvista">pyvista</a> or export the results to another format supported by <a class="reference external" href="https://github.com/nschloe/meshio">meshio</a> (e.g. VTK, Tecplot…),</p></li>
+<li><p>Create animations (GIF or MP4) or export results for all time steps to a XDMF file to be visualized in ParaView.</p></li>
 </ul>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The recommended way to install <strong>toughio</strong> and all its dependencies
-is through the Python Package Index:</p>
+<p>The recommended way to install <strong>toughio</strong> and all its dependencies is through the Python Package Index:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install toughio<span class="o">[</span>full<span class="o">]</span> --user
 </pre></div>
 </div>
-<p>Otherwise, clone and extract the package, then run from the package
-location:</p>
+<p>Otherwise, clone and extract the package, then run from the package location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .<span class="o">[</span>full<span class="o">]</span> --user
+</pre></div>
+</div>
+<p>To test the integrity of the package, check out this repository and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git lfs pull
+pytest
 </pre></div>
 </div>
 </div>
@@ -243,11 +223,14 @@ location:</p>
 sphinx-build -b html doc/source doc/build
 </pre></div>
 </div>
+<p>Note that some sample files are stored with LFS, so you may have to run the following command beforehand:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git lfs pull
+</pre></div>
+</div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>In Python, to read a mesh and write the corresponding TOUGH <em>MESH</em> file
-(without any pre-processing), simply do</p>
+<p>In Python, to read a mesh and write the corresponding TOUGH <em>MESH</em> file (without any pre-processing), simply do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">toughio</span>
 
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">toughio</span><span class="o">.</span><span class="n">read_mesh</span><span class="p">(</span>
@@ -257,8 +240,7 @@ sphinx-build -b html doc/source doc/build
 <span class="n">mesh</span><span class="o">.</span><span class="n">write_tough</span><span class="p">()</span>  <span class="c1"># Write MESH file</span>
 </pre></div>
 </div>
-<p>Parameters of a TOUGH simulation can be defined as a dictionary with
-specific keywords following the JSON standard, for instance</p>
+<p>Parameters of a TOUGH simulation can be defined as a dictionary with specific keywords following the JSON standard, for instance</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample title&quot;</span><span class="p">,</span>
    <span class="s2">&quot;eos&quot;</span><span class="p">:</span> <span class="s2">&quot;eco2n&quot;</span><span class="p">,</span>
@@ -288,8 +270,7 @@ specific keywords following the JSON standard, for instance</p>
 <span class="n">toughio</span><span class="o">.</span><span class="n">write_input</span><span class="p">(</span><span class="s2">&quot;INFILE&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>TOUGH simulation output can also be imported into Python as a list of
-<em>namedtuple</em> (<code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">labels</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>)</p>
+<p>TOUGH simulation output can also be imported into Python as a list of <em>namedtuple</em> (<code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">labels</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">toughio</span><span class="o">.</span><span class="n">read_output</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
