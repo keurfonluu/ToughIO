@@ -5,14 +5,14 @@
 
 Computation times
 =================
-**00:09.250** total execution time for **examples_co2_leakage_along_a_fault** files:
+**00:09.748** total execution time for **examples_co2_leakage_along_a_fault** files:
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_co2_leakage_along_a_fault_2_generate_mesh_and_incon_files.py` (``2_generate_mesh_and_incon_files.py``)                                           | 00:06.344 | 0.0 MB |
+| :ref:`sphx_glr_examples_co2_leakage_along_a_fault_2_generate_mesh_and_incon_files.py` (``2_generate_mesh_and_incon_files.py``)                                           | 00:06.629 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_co2_leakage_along_a_fault_4_import_and_visualize_simulation_outputs_in_pyvista.py` (``4_import_and_visualize_simulation_outputs_in_pyvista.py``) | 00:01.811 | 0.0 MB |
+| :ref:`sphx_glr_examples_co2_leakage_along_a_fault_4_import_and_visualize_simulation_outputs_in_pyvista.py` (``4_import_and_visualize_simulation_outputs_in_pyvista.py``) | 00:01.869 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_co2_leakage_along_a_fault_1_generate_mesh_in_python_with_gmsh.py` (``1_generate_mesh_in_python_with_gmsh.py``)                                   | 00:01.068 | 0.0 MB |
+| :ref:`sphx_glr_examples_co2_leakage_along_a_fault_1_generate_mesh_in_python_with_gmsh.py` (``1_generate_mesh_in_python_with_gmsh.py``)                                   | 00:01.222 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_examples_co2_leakage_along_a_fault_3_generate_model_parameters_input_file.py` (``3_generate_model_parameters_input_file.py``)                             | 00:00.027 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
