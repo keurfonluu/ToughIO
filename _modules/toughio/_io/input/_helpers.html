@@ -238,6 +238,11 @@
 <span class="sd">    file_format : str (&#39;tough&#39;, &#39;json&#39;) or None, optional, default None</span>
 <span class="sd">        Output file format.</span>
 
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    mesh : bool, optional, default False</span>
+<span class="sd">        Only if ``file_format = &quot;tough&quot;``. If `True`, only write blocks ELEME, COORD, CONNE and INCON.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>

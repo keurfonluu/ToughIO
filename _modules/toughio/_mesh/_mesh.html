@@ -951,7 +951,7 @@
         <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="k">for</span> <span class="n">out</span> <span class="ow">in</span> <span class="n">_qualities</span><span class="p">(</span><span class="bp">self</span><span class="p">)])</span></div>
 
 
-<div class="viewcode-block" id="from_meshio"><a class="viewcode-back" href="../../../api/mesh.html#toughio.from_meshio">[docs]</a><span class="k">def</span> <span class="nf">from_meshio</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
+<div class="viewcode-block" id="from_meshio"><a class="viewcode-back" href="../../../api/mesh.html#toughio.from_meshio">[docs]</a><span class="k">def</span> <span class="nf">from_meshio</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s2">&quot;dfalt&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a :class:`meshio.Mesh` to :class:`toughio.Mesh`.</span>
 
@@ -959,6 +959,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    mesh : meshio.Mesh</span>
 <span class="sd">        Input mesh.</span>
+<span class="sd">    material : str, optional, default &#39;dfalt&#39;</span>
+<span class="sd">        Default material name.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -969,6 +971,8 @@
     <span class="kn">from</span> <span class="nn">._helpers</span> <span class="kn">import</span> <span class="n">get_material_key</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">meshio</span><span class="o">.</span><span class="n">Mesh</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
 
     <span class="n">version</span> <span class="o">=</span> <span class="n">get_meshio_version</span><span class="p">()</span>
@@ -1011,12 +1015,12 @@
             <span class="k">else</span> <span class="mi">1</span>
         <span class="p">)</span>
         <span class="n">out</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s2">&quot;material&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">n_cells</span><span class="p">,</span> <span class="n">imat</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s2">&quot;dfalt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">imat</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="n">material</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">imat</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">out</span></div>
 
 
-<div class="viewcode-block" id="from_pyvista"><a class="viewcode-back" href="../../../api/mesh.html#toughio.from_pyvista">[docs]</a><span class="k">def</span> <span class="nf">from_pyvista</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
+<div class="viewcode-block" id="from_pyvista"><a class="viewcode-back" href="../../../api/mesh.html#toughio.from_pyvista">[docs]</a><span class="k">def</span> <span class="nf">from_pyvista</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s2">&quot;dfalt&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a :class:`pyvista.UnstructuredGrid` to :class:`toughio.Mesh`.</span>
 
@@ -1024,6 +1028,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    mesh : pyvista.UnstructuredGrid</span>
 <span class="sd">        Input mesh.</span>
+<span class="sd">    material : str, optional, default &#39;dfalt&#39;</span>
+<span class="sd">        Default material name.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1043,6 +1049,8 @@
         <span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
 
     <span class="c1"># Copy useful arrays to avoid repeated calls to properties</span>
@@ -1105,7 +1113,7 @@
     <span class="k">if</span> <span class="s2">&quot;material&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">imat</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">out</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s2">&quot;material&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">n_cells</span><span class="p">,</span> <span class="n">imat</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s2">&quot;dfalt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">imat</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="n">material</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">imat</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">out</span></div>
 </pre></div>

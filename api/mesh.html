@@ -657,11 +657,14 @@ projection onto common face (shortest distance).</p></li>
 
 <dl class="py function">
 <dt id="toughio.from_meshio">
-<code class="sig-prename descclassname">toughio.</code><code class="sig-name descname">from_meshio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#from_meshio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.from_meshio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">toughio.</code><code class="sig-name descname">from_meshio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">material</span><span class="o">=</span><span class="default_value">'dfalt'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#from_meshio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.from_meshio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a <code class="xref py py-class docutils literal notranslate"><span class="pre">meshio.Mesh</span></code> to <a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>meshio.Mesh</em>) – Input mesh.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>meshio.Mesh</em>) – Input mesh.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Output mesh.</p>
@@ -674,11 +677,14 @@ projection onto common face (shortest distance).</p></li>
 
 <dl class="py function">
 <dt id="toughio.from_pyvista">
-<code class="sig-prename descclassname">toughio.</code><code class="sig-name descname">from_pyvista</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#from_pyvista"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.from_pyvista" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">toughio.</code><code class="sig-name descname">from_pyvista</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">material</span><span class="o">=</span><span class="default_value">'dfalt'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#from_pyvista"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.from_pyvista" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a <code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code> to <a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>pyvista.UnstructuredGrid</em>) – Input mesh.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>pyvista.UnstructuredGrid</em>) – Input mesh.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Output mesh.</p>
