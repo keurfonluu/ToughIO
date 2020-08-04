@@ -188,7 +188,7 @@ Additionally, we can also pickle the final mesh for later use (reading a pickle 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.687 seconds)
+   **Total running time of the script:** ( 0 minutes  6.532 seconds)
 
 
 .. _sphx_glr_download_examples_co2_leakage_along_a_fault_2_generate_mesh_and_incon_files.py:
