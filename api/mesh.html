@@ -340,17 +340,17 @@ brings backward compatibility with its previous versions.</p>
 
 <dl class="py method">
 <dt id="toughio.Mesh.near">
-<code class="sig-name descname">near</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">point</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#Mesh.near"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.Mesh.near" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return index of cell nearest to query point.</p>
+<code class="sig-name descname">near</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#Mesh.near"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.Mesh.near" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return indices of cells nearest to query points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>point</strong> (<em>array_like</em>) – Coordinates of point to query.</p>
+<dd class="field-odd"><p><strong>points</strong> (<em>array_like</em>) – Coordinates of points to query.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Index of cell.</p>
+<dd class="field-even"><p>Index of cell or indices of cells.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tuple</p>
+<dd class="field-odd"><p>int or array_like</p>
 </dd>
 </dl>
 </dd></dl>
