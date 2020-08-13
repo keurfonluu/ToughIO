@@ -217,7 +217,8 @@
 </p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">toughio</span><span class="o">-</span><span class="n">export</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">mesh</span> <span class="n">MESH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">time</span><span class="o">-</span><span class="n">step</span> <span class="n">TIME_STEP</span><span class="p">]</span>
                       <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span> <span class="n">OUTPUT_FILE</span><span class="p">]</span>
-                      <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">-</span><span class="nb">format</span> <span class="p">{</span><span class="n">tecplot</span><span class="p">,</span><span class="n">vtk</span><span class="p">,</span><span class="n">vtu</span><span class="p">,</span><span class="n">xdmf</span><span class="p">}]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">-</span><span class="nb">format</span> <span class="p">{</span><span class="n">tecplot</span><span class="p">,</span><span class="n">vtk</span><span class="p">,</span><span class="n">vtu</span><span class="p">,</span><span class="n">xdmf</span><span class="p">}]</span> <span class="p">[</span><span class="o">--</span><span class="n">voxelize</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">origin</span> <span class="n">ORIGIN</span> <span class="p">[</span><span class="n">ORIGIN</span> <span class="o">...</span><span class="p">]]</span>
                       <span class="n">infile</span>
 </pre></div>
 </div>
@@ -245,6 +246,13 @@
 <dd><p>Possible choices: tecplot, vtk, vtu, xdmf</p>
 <p>exported file format</p>
 <p>Default: “vtk”</p>
+</dd>
+<dt><kbd>--voxelize, -v</kbd></dt>
+<dd><p>voxelize mesh (only if mesh is not provided, requires option –origin)</p>
+<p>Default: False</p>
+</dd>
+<dt><kbd>--origin</kbd></dt>
+<dd><p>coordinates of origin point (only if option –voxelize is enabled)</p>
 </dd>
 </dl>
 </div>

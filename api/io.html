@@ -184,12 +184,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – Input file name.</p></li>
-<li><p><strong>file_format</strong> (<em>str</em><em> (</em><em>'tough'</em><em>, </em><em>'json'</em><em>) or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Input file format.</p></li>
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Input file name.</p></li>
+<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span> <span class="pre">(``</span></code>’tough’<code class="docutils literal notranslate"><span class="pre">,</span> <span class="pre">``'json'</span></code><code class="xref py py-class docutils literal notranslate"><span class="pre">)</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Input file format.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><p><strong>label_length</strong> (<em>int or None, optional, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Number of characters in cell labels.</p>
+<dd class="field-even"><p><strong>label_length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Number of characters in cell labels.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>TOUGH input parameters.</p>
@@ -211,13 +211,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – Output file name.</p></li>
-<li><p><strong>parameters</strong> (<em>dict</em>) – Parameters to export.</p></li>
-<li><p><strong>file_format</strong> (<em>str</em><em> (</em><em>'tough'</em><em>, </em><em>'json'</em><em>) or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Output file format.</p></li>
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Output file name.</p></li>
+<li><p><strong>parameters</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Parameters to export.</p></li>
+<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span> <span class="pre">(``</span></code>’tough’<code class="docutils literal notranslate"><span class="pre">,</span> <span class="pre">``'json'</span></code><code class="xref py py-class docutils literal notranslate"><span class="pre">)</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Output file format.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><p><strong>mesh</strong> (<em>bool, optional, default False</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, only write blocks ELEME, COORD, CONNE and INCON.</p>
+<dd class="field-even"><p><strong>mesh</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, only write blocks ELEME, COORD, CONNE and INCON.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -231,7 +231,7 @@
 <dd><p>Read history file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Input file name.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Input file name.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>History data.</p>
@@ -249,10 +249,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – Input file name.</p></li>
-<li><p><strong>labels_order</strong> (<em>list of array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – List of labels.</p></li>
-<li><p><strong>connection</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>default False</em>) – Only for standard TOUGH output file. If <cite>True</cite>, return data related to connections.</p></li>
-<li><p><strong>label_length</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Only for standard TOUGH output file. Number of characters in cell labels.</p></li>
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Input file name.</p></li>
+<li><p><strong>labels_order</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – List of labels.</p></li>
+<li><p><strong>connection</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code>) – Only for standard TOUGH output file. If <cite>True</cite>, return data related to connections.</p></li>
+<li><p><strong>label_length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only for standard TOUGH output file. Number of characters in cell labels.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -271,9 +271,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – Input file name.</p></li>
-<li><p><strong>output</strong> (<em>namedtuple</em><em> or </em><em>list of namedtuple</em>) – namedtuple (type, format, time, labels, data) or list of namedtuple for each time step to export.</p></li>
-<li><p><strong>file_format</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Output file format.</p></li>
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Input file name.</p></li>
+<li><p><strong>output</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code>) – namedtuple (type, format, time, labels, data) or list of namedtuple for each time step to export.</p></li>
+<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Output file format.</p></li>
 </ul>
 </dd>
 </dl>

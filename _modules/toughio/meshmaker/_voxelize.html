@@ -167,38 +167,67 @@
 <span class="p">]</span>
 
 
-<div class="viewcode-block" id="voxelize"><a class="viewcode-back" href="../../../api/mesh.html#toughio.meshmaker.voxelize">[docs]</a><span class="k">def</span> <span class="nf">voxelize</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s2">&quot;dfalt&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="voxelize"><a class="viewcode-back" href="../../../api/mesh.html#toughio.meshmaker.voxelize">[docs]</a><span class="k">def</span> <span class="nf">voxelize</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s2">&quot;dfalt&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Generate a 1D hexahedral mesh from 1D point coordinates.</span>
+<span class="sd">    Generate a 3D non-uniform structured grid from cloud points.</span>
+
+<span class="sd">    Input points must form a non-uniform structured grid.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    points : array_like (n_points,)</span>
+<span class="sd">    points : array_like</span>
 <span class="sd">        Cooordinates of points.</span>
+<span class="sd">    origin : array_like</span>
+<span class="sd">        Origin point coordinate.</span>
 <span class="sd">    material : str, optional, default &#39;dfalt&#39;</span>
 <span class="sd">        Default material name.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    toughio.Mesh</span>
-<span class="sd">        Output hexahedral mesh.</span>
+<span class="sd">        Output non-uniform structured mesh.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">voronoi1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xstr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;1D Voronoi tessellation.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">x0</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-coordinate of origin must be lower than </span><span class="si">{:.3f}</span><span class="s2">, got </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">xstr</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x0</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="n">vor</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+                <span class="n">vor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">xx</span> <span class="o">-</span> <span class="n">vor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vor</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">x0</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">vor</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
 
-    <span class="n">points</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span> <span class="o">-</span> <span class="n">points</span><span class="p">[</span><span class="n">idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">points</span><span class="o">.</span><span class="n">min</span><span class="p">())]</span>
-    <span class="n">dz</span> <span class="o">=</span> <span class="n">dy</span>
-    <span class="n">origin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dz</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="n">z</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input points do not form a structured grid.&quot;</span><span class="p">)</span>
 
-    <span class="n">mesh</span> <span class="o">=</span> <span class="n">structured_grid</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
-    <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">idx</span><span class="p">)]</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span> <span class="o">=</span> <span class="n">origin</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">voronoi1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">voronoi1d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">voronoi1d</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">dz</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">structured_grid</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">material</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">mesh</span></div>
 </pre></div>
