@@ -184,13 +184,13 @@ brings backward compatibility with its previous versions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span> <span class="pre">(n_points</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">3)</span></code>) – Cooordinates of points.</p></li>
-<li><p><strong>cells</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">tuples</span> <span class="pre">(cell_type</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">data)</span></code>) – Connectivity of cells.</p></li>
-<li><p><strong>point_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Point data arrays.</p></li>
-<li><p><strong>cell_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Cell data arrays.</p></li>
-<li><p><strong>field_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Field data names.</p></li>
-<li><p><strong>point_sets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Sets of points.</p></li>
-<li><p><strong>cell_sets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Sets of cells.</p></li>
+<li><p><strong>points</strong> (<em>array_like</em><em> (</em><em>n_points</em><em>, </em><em>3</em><em>)</em>) – Cooordinates of points.</p></li>
+<li><p><strong>cells</strong> (<em>list of tuples</em><em> (</em><em>cell_type</em><em>, </em><em>data</em><em>)</em>) – Connectivity of cells.</p></li>
+<li><p><strong>point_data</strong> (<em>dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Point data arrays.</p></li>
+<li><p><strong>cell_data</strong> (<em>dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Cell data arrays.</p></li>
+<li><p><strong>field_data</strong> (<em>dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Field data names.</p></li>
+<li><p><strong>point_sets</strong> (<em>dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Sets of points.</p></li>
+<li><p><strong>cell_sets</strong> (<em>dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Sets of cells.</p></li>
 </ul>
 </dd>
 </dl>
@@ -201,8 +201,8 @@ brings backward compatibility with its previous versions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Cell data array name.</p></li>
-<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Cell data array.</p></li>
+<li><p><strong>label</strong> (<em>str</em>) – Cell data array name.</p></li>
+<li><p><strong>data</strong> (<em>array_like</em>) – Cell data array.</p></li>
 </ul>
 </dd>
 </dl>
@@ -215,8 +215,8 @@ brings backward compatibility with its previous versions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Point data array name.</p></li>
-<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Point data array.</p></li>
+<li><p><strong>label</strong> (<em>str</em>) – Point data array name.</p></li>
+<li><p><strong>data</strong> (<em>array_like</em>) – Point data array.</p></li>
 </ul>
 </dd>
 </dl>
@@ -276,9 +276,9 @@ brings backward compatibility with its previous versions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>height</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">scalar</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – Height of extrusion.</p></li>
-<li><p><strong>axis</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span> <span class="pre">(0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">2)</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Axis along which extrusion is performed.</p></li>
-<li><p><strong>inplace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code>) – If <cite>False</cite>, return a new <a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>.</p></li>
+<li><p><strong>height</strong> (<em>scalar</em><em> or </em><em>array_like</em><em>, </em><em>optional</em><em>, </em><em>default 1.0</em>) – Height of extrusion.</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em> (</em><em>0</em><em>, </em><em>1</em><em> or </em><em>2</em><em>)</em><em>, </em><em>optional</em><em>, </em><em>default 2</em>) – Axis along which extrusion is performed.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>default True</em>) – If <cite>False</cite>, return a new <a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -350,7 +350,7 @@ brings backward compatibility with its previous versions.</p>
 <dd><p>Return indices of cells nearest to query points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>points</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Coordinates of points to query.</p>
+<dd class="field-odd"><p><strong>points</strong> (<em>array_like</em>) – Coordinates of points to query.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Index of cell or indices of cells.</p>
@@ -397,7 +397,7 @@ brings backward compatibility with its previous versions.</p>
 <dd><p>Delete duplicate points and cells.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>inplace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code>) – If <cite>False</cite>, return a new <a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>.</p>
+<dd class="field-odd"><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>default True</em>) – If <cite>False</cite>, return a new <a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Pruned mesh (only if <code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">==</span> <span class="pre">False</span></code>).</p>
@@ -427,9 +427,9 @@ connection line and the interface normal vectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>file_or_output</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code>) – Input file name or output data.</p></li>
-<li><p><strong>time_step</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">-1</span></code>) – Data for given time step to import. Default is last time step.</p></li>
-<li><p><strong>connection</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code>) – Only for standard TOUGH output file. If <cite>True</cite>, read data related to connections.</p></li>
+<li><p><strong>file_or_output</strong> (<em>str</em><em>, </em><em>namedtuple</em><em> or </em><em>list of namedtuple</em>) – Input file name or output data.</p></li>
+<li><p><strong>time_step</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default -1</em>) – Data for given time step to import. Default is last time step.</p></li>
+<li><p><strong>connection</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>default False</em>) – Only for standard TOUGH output file. If <cite>True</cite>, read data related to connections.</p></li>
 </ul>
 </dd>
 </dl>
@@ -443,10 +443,10 @@ connection line and the interface normal vectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Material name.</p></li>
-<li><p><strong>xlim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Minimum and maximum values in X direction.</p></li>
-<li><p><strong>ylim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Minimum and maximum values in Y direction.</p></li>
-<li><p><strong>zlim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Minimum and maximum values in Z direction.</p></li>
+<li><p><strong>material</strong> (<em>str</em>) – Material name.</p></li>
+<li><p><strong>xlim</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Minimum and maximum values in X direction.</p></li>
+<li><p><strong>ylim</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Minimum and maximum values in Y direction.</p></li>
+<li><p><strong>zlim</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Minimum and maximum values in Z direction.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -461,7 +461,7 @@ connection line and the interface normal vectors.</p>
 <dd><p>Split input array into subarrays for each cell block in mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Input array.</p>
+<dd class="field-odd"><p><strong>arr</strong> (<em>array_like</em>) – Input array.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>List of subarrays.</p>
@@ -513,25 +513,25 @@ connection line and the interface normal vectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Output file name.</p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Output file format. If <cite>None</cite>, it will be guessed from file’s
+<li><p><strong>filename</strong> (<em>str</em>) – Output file name.</p></li>
+<li><p><strong>file_format</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Output file format. If <cite>None</cite>, it will be guessed from file’s
 extension. To write TOUGH MESH, <cite>file_format</cite> must be specified
 as ‘tough’ (no specific extension exists for TOUGH MESH).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Other Parameters</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>nodal_distance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span> <span class="pre">(``</span></code>’line’`` or <code class="docutils literal notranslate"><span class="pre">'orthogonal'</span></code><code class="xref py py-class docutils literal notranslate"><span class="pre">)</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'line'</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Method to calculate connection
+<li><p><strong>nodal_distance</strong> (<em>str (‘line’ or ‘orthogonal’), optional, default ‘line’</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Method to calculate connection
 nodal distances:
 - ‘line’: distance between node and common face along connecting
 line (distance is not normal),
 - ‘orthogonal’ : distance between node and its orthogonal
 projection onto common face (shortest distance).</p></li>
-<li><p><strong>material_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Rename cell material.</p></li>
-<li><p><strong>material_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Move cells to bottom of block
+<li><p><strong>material_name</strong> (<em>dict or None, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Rename cell material.</p></li>
+<li><p><strong>material_end</strong> (<em>str, array_like or None, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Move cells to bottom of block
 ‘ELEME’ if their materials is in <cite>material_end</cite>.</p></li>
-<li><p><strong>incon</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
-<li><p><strong>protocol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">integer</span></code>, <em>optional</em>, <em>default</em> <cite>pickle.HIGHEST_PROTOCOL</cite>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;pickle&quot;</span></code>. <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> protocol version.</p></li>
+<li><p><strong>incon</strong> (<em>bool, optional, default False</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
+<li><p><strong>protocol</strong> (integer, optional, default <cite>pickle.HIGHEST_PROTOCOL</cite>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;pickle&quot;</span></code>. <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> protocol version.</p></li>
 </ul>
 </dd>
 </dl>
@@ -543,7 +543,7 @@ projection onto common face (shortest distance).</p></li>
 <dd><p>Write TOUGH <cite>INCON</cite> file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'INCON'</span></code>) – Output file name.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'INCON'</em>) – Output file name.</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -559,18 +559,18 @@ mesh.</p>
 <dd><p>Write TOUGH <cite>MESH</cite> file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'MESH'</span></code>) – Output file name.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'MESH'</em>) – Output file name.</p>
 </dd>
 <dt class="field-even">Other Parameters</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>nodal_distance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span> <span class="pre">(``</span></code>’line’`` or <code class="docutils literal notranslate"><span class="pre">'orthogonal'</span></code><code class="xref py py-class docutils literal notranslate"><span class="pre">)</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'line'</span></code>) – Method to calculate connection nodal distances:
+<li><p><strong>nodal_distance</strong> (<em>str (‘line’ or ‘orthogonal’), optional, default ‘line’</em>) – Method to calculate connection nodal distances:
 - ‘line’: distance between node and common face along connecting
 line (distance is not normal),
 - ‘orthogonal’ : distance between node and its orthogonal
 projection onto common face (shortest distance).</p></li>
-<li><p><strong>material_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Rename cell material.</p></li>
-<li><p><strong>material_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Move cells to bottom of block ‘ELEME’ if their materials is in <cite>material_end</cite>.</p></li>
-<li><p><strong>incon</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code>) – If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
+<li><p><strong>material_name</strong> (<em>dict or None, default None</em>) – Rename cell material.</p></li>
+<li><p><strong>material_end</strong> (<em>str, array_like or None, default None</em>) – Move cells to bottom of block ‘ELEME’ if their materials is in <cite>material_end</cite>.</p></li>
+<li><p><strong>incon</strong> (<em>bool, optional, default False</em>) – If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -587,12 +587,12 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Input file name.</p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Input file format.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Input file name.</p></li>
+<li><p><strong>file_format</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Input file format.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><p><strong>label_length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Number of characters in cell labels.</p>
+<dd class="field-even"><p><strong>label_length</strong> (<em>int or None, optional, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Number of characters in cell labels.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Imported mesh.</p>
@@ -610,20 +610,20 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Output file name.</p></li>
-<li><p><strong>mesh</strong> (<a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">toughio.Mesh</span></code></a>) – Mesh to export.</p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Output file format.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Output file name.</p></li>
+<li><p><strong>mesh</strong> (<a class="reference internal" href="#toughio.Mesh" title="toughio.Mesh"><em>toughio.Mesh</em></a>) – Mesh to export.</p></li>
+<li><p><strong>file_format</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Output file format.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Other Parameters</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>nodal_distance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span> <span class="pre">(``</span></code>’line’`` or <code class="docutils literal notranslate"><span class="pre">'orthogonal'</span></code><code class="xref py py-class docutils literal notranslate"><span class="pre">)</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'line'</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Method to calculate connection nodal distances:
+<li><p><strong>nodal_distance</strong> (<em>str (‘line’ or ‘orthogonal’), optional, default ‘line’</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Method to calculate connection nodal distances:
 - ‘line’: distance between node and common face along connecting line (distance is not normal),
 - ‘orthogonal’ : distance between node and its orthogonal projection onto common face (shortest distance).</p></li>
-<li><p><strong>material_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Rename cell material.</p></li>
-<li><p><strong>material_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Move cells to bottom of block ‘ELEME’ if their materials is in <cite>material_end</cite>.</p></li>
-<li><p><strong>incon</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
-<li><p><strong>protocol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">integer</span></code>, <em>optional</em>, <em>default</em> <cite>pickle.HIGHEST_PROTOCOL</cite>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;pickle&quot;</span></code>. <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> protocol version.</p></li>
+<li><p><strong>material_name</strong> (<em>dict or None, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Rename cell material.</p></li>
+<li><p><strong>material_end</strong> (<em>str, array_like or None, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Move cells to bottom of block ‘ELEME’ if their materials is in <cite>material_end</cite>.</p></li>
+<li><p><strong>incon</strong> (<em>bool, optional, default False</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
+<li><p><strong>protocol</strong> (integer, optional, default <cite>pickle.HIGHEST_PROTOCOL</cite>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;pickle&quot;</span></code>. <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> protocol version.</p></li>
 </ul>
 </dd>
 </dl>
@@ -635,7 +635,7 @@ projection onto common face (shortest distance).</p></li>
 <dd><p>Read time series from XDMF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Input file name.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Input file name.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
@@ -656,12 +656,12 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Output file name.</p></li>
-<li><p><strong>points</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Grid points array.</p></li>
-<li><p><strong>cells</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span> <span class="pre">(type</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">data)</span></code>) – Grid cell data.</p></li>
-<li><p><strong>point_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Data associated to grid points for each time step.</p></li>
-<li><p><strong>cell_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Data associated to grid cells for each time step.</p></li>
-<li><p><strong>time_steps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Time step values.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Output file name.</p></li>
+<li><p><strong>points</strong> (<em>ndarray</em>) – Grid points array.</p></li>
+<li><p><strong>cells</strong> (<em>list of namedtuple</em><em> (</em><em>type</em><em>, </em><em>data</em><em>)</em>) – Grid cell data.</p></li>
+<li><p><strong>point_data</strong> (<em>list of dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Data associated to grid points for each time step.</p></li>
+<li><p><strong>cell_data</strong> (<em>list of dict</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Data associated to grid cells for each time step.</p></li>
+<li><p><strong>time_steps</strong> (<em>array_like</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Time step values.</p></li>
 </ul>
 </dd>
 </dl>
@@ -674,8 +674,8 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">meshio.Mesh</span></code>) – Input mesh.</p></li>
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'dfalt'</span></code>) – Default material name.</p></li>
+<li><p><strong>mesh</strong> (<em>meshio.Mesh</em>) – Input mesh.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -694,8 +694,8 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code>) – Input mesh.</p></li>
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'dfalt'</span></code>) – Default material name.</p></li>
+<li><p><strong>mesh</strong> (<em>pyvista.UnstructuredGrid</em>) – Input mesh.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -717,10 +717,10 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Grid spacing along X axis.</p></li>
-<li><p><strong>dz</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Grid spacing along Z axis.</p></li>
-<li><p><strong>origin_z</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">scalar</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Depth of origin point.</p></li>
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'dfalt'</span></code>) – Default material name.</p></li>
+<li><p><strong>dr</strong> (<em>array_like</em>) – Grid spacing along X axis.</p></li>
+<li><p><strong>dz</strong> (<em>array_like</em>) – Grid spacing along Z axis.</p></li>
+<li><p><strong>origin_z</strong> (<em>scalar</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Depth of origin point.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -740,9 +740,9 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Cooordinates of points.</p></li>
-<li><p><strong>origin</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Origin point coordinate.</p></li>
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'dfalt'</span></code>) – Default material name.</p></li>
+<li><p><strong>points</strong> (<em>array_like</em>) – Cooordinates of points.</p></li>
+<li><p><strong>origin</strong> (<em>array_like</em>) – Origin point coordinate.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -761,11 +761,11 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Grid spacing along X axis.</p></li>
-<li><p><strong>dy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Grid spacing along Y axis.</p></li>
-<li><p><strong>dz</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Grid spacing along Z axis. If <cite>None</cite>, generate 2D grid.</p></li>
-<li><p><strong>origin</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <em>optional</em>, <em>default</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>) – Origin point coordinate.</p></li>
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'dfalt'</span></code>) – Default material name.</p></li>
+<li><p><strong>dx</strong> (<em>array_like</em>) – Grid spacing along X axis.</p></li>
+<li><p><strong>dy</strong> (<em>array_like</em>) – Grid spacing along Y axis.</p></li>
+<li><p><strong>dz</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Grid spacing along Z axis. If <cite>None</cite>, generate 2D grid.</p></li>
+<li><p><strong>origin</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Origin point coordinate.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -784,8 +784,8 @@ projection onto common face (shortest distance).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code>) – Cooordinates of points.</p></li>
-<li><p><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'dfalt'</span></code>) – Default material name.</p></li>
+<li><p><strong>points</strong> (<em>array_like</em>) – Cooordinates of points.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'dfalt'</em>) – Default material name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
