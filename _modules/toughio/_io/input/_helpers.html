@@ -240,8 +240,12 @@
 
 <span class="sd">    Other Parameters</span>
 <span class="sd">    ----------------</span>
-<span class="sd">    mesh : bool, optional, default False</span>
-<span class="sd">        Only if ``file_format = &quot;tough&quot;``. If `True`, only write blocks ELEME, COORD, CONNE and INCON.</span>
+<span class="sd">    block : str {&#39;all&#39;, &#39;gener&#39;, &#39;mesh&#39;, &#39;incon&#39;}, optional, default &#39;all&#39;</span>
+<span class="sd">        Only if ``file_format = &quot;tough&quot;``. Blocks to be written:</span>
+<span class="sd">         - &#39;all&#39;: write all blocks,</span>
+<span class="sd">         - &#39;gener&#39;: only write block GENER,</span>
+<span class="sd">         - &#39;mesh&#39;: only write blocks ELEME, COORD and CONNE,</span>
+<span class="sd">         - &#39;incon&#39;: only write block INCON.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>

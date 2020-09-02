@@ -208,7 +208,7 @@
 <dt id="toughio.write_input">
 <code class="sig-prename descclassname">toughio.</code><code class="sig-name descname">write_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">file_format</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#toughio.write_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write TOUGH input file.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – Output file name.</p></li>
@@ -217,7 +217,16 @@
 </ul>
 </dd>
 <dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><p><strong>mesh</strong> (<em>bool, optional, default False</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, only write blocks ELEME, COORD, CONNE and INCON.</p>
+<dd class="field-even"><p><strong>block</strong> (<em>str {‘all’, ‘gener’, ‘mesh’, ‘incon’}, optional, default ‘all’</em>) –</p>
+<dl class="simple">
+<dt>Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Blocks to be written:</dt><dd><ul class="simple">
+<li><p>‘all’: write all blocks,</p></li>
+<li><p>‘gener’: only write block GENER,</p></li>
+<li><p>‘mesh’: only write blocks ELEME, COORD and CONNE,</p></li>
+<li><p>‘incon’: only write block INCON.</p></li>
+</ul>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

@@ -52,6 +52,7 @@
 ./_sources/gallery/index.rst.txt
 ./_sources/index.rst.txt
 ./_static/basic.css
+./_static/binder_badge_logo.svg
 ./_static/broken_example.png
 ./_static/css/badge_only.css
 ./_static/css/fonts/Roboto-Slab-Bold.woff
