@@ -315,6 +315,23 @@ brings backward compatibility with its previous versions.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="toughio.Mesh.filter">
+<em class="property">property </em><code class="sig-name descname">filter</code><a class="headerlink" href="#toughio.Mesh.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filter</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default 'box'</em>) – Filter method.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Indices of cells filtered.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="toughio.Mesh.label_length">
 <em class="property">property </em><code class="sig-name descname">label_length</code><a class="headerlink" href="#toughio.Mesh.label_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return length of labels.</p>
@@ -437,20 +454,14 @@ connection line and the interface normal vectors.</p>
 
 <dl class="py method">
 <dt id="toughio.Mesh.set_material">
-<code class="sig-name descname">set_material</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">material</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#Mesh.set_material"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.Mesh.set_material" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set material to cells in box.</p>
-<p>Set material for cells within box selection defined by <cite>xlim</cite>, <cite>ylim</cite> and <cite>zlim</cite>.</p>
+<code class="sig-name descname">set_material</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">material</span></em>, <em class="sig-param"><span class="n">cells</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toughio/_mesh/_mesh.html#Mesh.set_material"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toughio.Mesh.set_material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set material to cells.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>material</strong> (<em>str</em>) – Material name.</p></li>
-<li><p><strong>xlim</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Minimum and maximum values in X direction.</p></li>
-<li><p><strong>ylim</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Minimum and maximum values in Y direction.</p></li>
-<li><p><strong>zlim</strong> (<em>array_like</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Minimum and maximum values in Z direction.</p></li>
+<li><p><strong>cells</strong> (<em>array_like</em>) – Indices of cells or array of booleans.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>AssertionError</strong> – If any input argument is not valid.</p>
 </dd>
 </dl>
 </dd></dl>
