@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toughio._io.input._helpers &mdash; toughio 1.4.2 documentation</title>
+  <title>toughio._io.input._helpers &mdash; toughio 1.4.3 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                1.4.2
+                1.4.3
               </div>
             
           
@@ -161,6 +161,7 @@
 <span></span><span class="kn">from</span> <span class="nn">..._common</span> <span class="kn">import</span> <span class="n">filetype_from_filename</span><span class="p">,</span> <span class="n">register_format</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;register&quot;</span><span class="p">,</span>
     <span class="s2">&quot;read&quot;</span><span class="p">,</span>
     <span class="s2">&quot;write&quot;</span><span class="p">,</span>
 <span class="p">]</span>
@@ -172,7 +173,21 @@
 
 
 <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">file_format</span><span class="p">,</span> <span class="n">extensions</span><span class="p">,</span> <span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Register a new format.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register a new input format.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_format : str</span>
+<span class="sd">        File format to register.</span>
+<span class="sd">    extensions : array_like</span>
+<span class="sd">        List of extensions to associate to the new format.</span>
+<span class="sd">    reader : callable</span>
+<span class="sd">        Read fumction.</span>
+<span class="sd">    writer : callable or None, optional, default None</span>
+<span class="sd">        Write function.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">register_format</span><span class="p">(</span>
         <span class="n">fmt</span><span class="o">=</span><span class="n">file_format</span><span class="p">,</span>
         <span class="n">ext_to_fmt</span><span class="o">=</span><span class="n">_extension_to_filetype</span><span class="p">,</span>

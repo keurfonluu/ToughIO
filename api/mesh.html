@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Meshing &mdash; toughio 1.4.2 documentation</title>
+  <title>Meshing &mdash; toughio 1.4.3 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                1.4.2
+                1.4.3
               </div>
             
           
@@ -635,6 +635,23 @@ projection onto common face (shortest distance).</p></li>
 <li><p><strong>material_end</strong> (<em>str, array_like or None, default None</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. Move cells to bottom of block ‘ELEME’ if their materials is in <cite>material_end</cite>.</p></li>
 <li><p><strong>incon</strong> (<em>bool, optional, default False</em>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;tough&quot;</span></code>. If <cite>True</cite>, initial conditions will be written in file <cite>INCON</cite>.</p></li>
 <li><p><strong>protocol</strong> (integer, optional, default <cite>pickle.HIGHEST_PROTOCOL</cite>) – Only if <code class="docutils literal notranslate"><span class="pre">file_format</span> <span class="pre">=</span> <span class="pre">&quot;pickle&quot;</span></code>. <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> protocol version.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="toughio.register_mesh">
+<code class="sig-prename descclassname">toughio.</code><code class="sig-name descname">register_mesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_format</span></em>, <em class="sig-param"><span class="n">extensions</span></em>, <em class="sig-param"><span class="n">reader</span></em>, <em class="sig-param"><span class="n">writer</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">material</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#toughio.register_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new mesh format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_format</strong> (<em>str</em>) – File format to register.</p></li>
+<li><p><strong>extensions</strong> (<em>array_like</em>) – List of extensions to associate to the new format.</p></li>
+<li><p><strong>reader</strong> (<em>callable</em>) – Read fumction.</p></li>
+<li><p><strong>writer</strong> (<em>callable</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Write function.</p></li>
+<li><p><strong>material</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em><em>, </em><em>default None</em>) – Cell data key associated to material.</p></li>
 </ul>
 </dd>
 </dl>
