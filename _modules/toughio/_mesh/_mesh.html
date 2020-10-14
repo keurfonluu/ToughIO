@@ -437,10 +437,8 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="kn">import</span> <span class="nn">pyvista</span>
             <span class="kn">import</span> <span class="nn">vtk</span>
-            <span class="kn">from</span> <span class="nn">._common</span> <span class="kn">import</span> <span class="p">(</span>
-                <span class="n">meshio_to_vtk_type</span><span class="p">,</span>
-                <span class="n">vtk_type_to_numnodes</span><span class="p">,</span>
-            <span class="p">)</span>
+
+            <span class="kn">from</span> <span class="nn">._common</span> <span class="kn">import</span> <span class="n">meshio_to_vtk_type</span><span class="p">,</span> <span class="n">vtk_type_to_numnodes</span>
 
             <span class="n">VTK9</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkVersion</span><span class="p">()</span><span class="o">.</span><span class="n">GetVTKMajorVersion</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">9</span>
         <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -535,7 +533,7 @@
 <span class="sd">        mesh.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span> <span class="nn">.tough._tough</span> <span class="kn">import</span> <span class="n">init_incon</span><span class="p">,</span> <span class="n">check_incon</span><span class="p">,</span> <span class="n">write_incon</span>
+        <span class="kn">from</span> <span class="nn">.tough._tough</span> <span class="kn">import</span> <span class="n">check_incon</span><span class="p">,</span> <span class="n">init_incon</span><span class="p">,</span> <span class="n">write_incon</span>
 
         <span class="n">primary_variables</span><span class="p">,</span> <span class="n">porosities</span><span class="p">,</span> <span class="n">permeabilities</span> <span class="o">=</span> <span class="n">init_incon</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">incon</span> <span class="o">=</span> <span class="n">check_incon</span><span class="p">(</span>
@@ -1066,6 +1064,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">pyvista</span>
         <span class="kn">import</span> <span class="nn">vtk</span>
+
         <span class="kn">from</span> <span class="nn">._common</span> <span class="kn">import</span> <span class="n">vtk_to_meshio_type</span>
 
         <span class="n">VTK9</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkVersion</span><span class="p">()</span><span class="o">.</span><span class="n">GetVTKMajorVersion</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">9</span>
