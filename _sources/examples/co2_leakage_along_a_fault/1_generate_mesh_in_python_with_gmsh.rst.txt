@@ -416,7 +416,7 @@ The generated mesh can be visualized in Python with :mod:`pyvista`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.123 seconds)
+   **Total running time of the script:** ( 0 minutes  1.041 seconds)
 
 
 .. _sphx_glr_download_examples_co2_leakage_along_a_fault_1_generate_mesh_in_python_with_gmsh.py:

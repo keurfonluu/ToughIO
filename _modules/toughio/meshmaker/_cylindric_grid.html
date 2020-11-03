@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toughio.meshmaker._cylindric_grid &mdash; toughio 1.4.4 documentation</title>
+  <title>toughio.meshmaker._cylindric_grid &mdash; toughio 1.4.5 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                1.4.4
+                1.4.5
               </div>
             
           
@@ -169,7 +169,7 @@
 
 
 <span class="k">class</span> <span class="nc">CylindricMesh</span><span class="p">(</span><span class="n">Mesh</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dr</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dr</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Cylindric mesh.</span>
 
@@ -183,7 +183,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">CylindricMesh</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span> <span class="o">=</span> <span class="n">dr</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dz</span> <span class="o">=</span> <span class="n">dz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dz</span> <span class="o">=</span> <span class="n">dz</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># From top to bottom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_layer</span> <span class="o">=</span> <span class="n">layer</span>
 
     <span class="k">def</span> <span class="nf">_get_areas_heights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return areas and heights of cells in mesh.&quot;&quot;&quot;</span>
@@ -199,14 +200,13 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">face_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Areas of faces in mesh.&quot;&quot;&quot;</span>
-        <span class="n">nz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dz</span><span class="p">)</span>
+        <span class="n">nr</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dz</span><span class="p">)</span>
         <span class="n">dr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mf">0.0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="p">))</span>
         <span class="n">perimeters_in</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">dr</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">nz</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
         <span class="n">perimeters_out</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">dr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">nz</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
         <span class="n">areas</span><span class="p">,</span> <span class="n">heights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_areas_heights</span><span class="p">()</span>
         <span class="n">sections</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="p">,</span> <span class="n">nz</span><span class="p">)</span> <span class="o">*</span> <span class="n">heights</span>
-
-        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
             <span class="p">[</span>
                 <span class="n">areas</span><span class="p">,</span>
                 <span class="n">areas</span><span class="p">,</span>
@@ -217,14 +217,23 @@
             <span class="p">]</span>
         <span class="p">)</span>
 
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">out</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_layer</span>
+            <span class="k">else</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">nz</span><span class="p">,</span> <span class="n">nr</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">nz</span> <span class="o">*</span> <span class="n">nr</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Volumes of cell in mesh.&quot;&quot;&quot;</span>
+        <span class="n">nr</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dz</span><span class="p">)</span>
         <span class="n">areas</span><span class="p">,</span> <span class="n">heights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_areas_heights</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">areas</span> <span class="o">*</span> <span class="n">heights</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">areas</span> <span class="o">*</span> <span class="n">heights</span>
+
+        <span class="k">return</span> <span class="n">out</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_layer</span> <span class="k">else</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">nz</span><span class="p">,</span> <span class="n">nr</span><span class="p">))</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="cylindric_grid"><a class="viewcode-back" href="../../../api/mesh.html#toughio.meshmaker.cylindric_grid">[docs]</a><span class="k">def</span> <span class="nf">cylindric_grid</span><span class="p">(</span><span class="n">dr</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">origin_z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s2">&quot;dfalt&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="cylindric_grid"><a class="viewcode-back" href="../../../api/mesh.html#toughio.meshmaker.cylindric_grid">[docs]</a><span class="k">def</span> <span class="nf">cylindric_grid</span><span class="p">(</span><span class="n">dr</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">origin_z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s2">&quot;dfalt&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a cylindric mesh as a radial XZ structured grid.</span>
 
@@ -236,6 +245,8 @@
 <span class="sd">        Grid spacing along Z axis.</span>
 <span class="sd">    origin_z : scalar, optional, default None</span>
 <span class="sd">        Depth of origin point.</span>
+<span class="sd">    layer : bool, optional, default False</span>
+<span class="sd">        If `True`, mesh will be generated by layers.</span>
 <span class="sd">    material : str, optional, default &#39;dfalt&#39;</span>
 <span class="sd">        Default material name.</span>
 
@@ -263,12 +274,18 @@
     <span class="n">origin_z</span> <span class="o">=</span> <span class="n">origin_z</span> <span class="k">if</span> <span class="n">origin_z</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="o">-</span><span class="n">dz</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">structured_grid</span><span class="p">(</span>
-        <span class="n">dr</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">dz</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">origin_z</span><span class="p">],</span> <span class="n">material</span><span class="o">=</span><span class="n">material</span>
+        <span class="n">dr</span><span class="p">,</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span>
+        <span class="n">dz</span><span class="p">,</span>
+        <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">origin_z</span><span class="p">],</span>
+        <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">material</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">CylindricMesh</span><span class="p">(</span>
         <span class="n">dr</span><span class="p">,</span>
         <span class="n">dz</span><span class="p">,</span>
+        <span class="n">layer</span><span class="p">,</span>
         <span class="n">points</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">,</span>
         <span class="n">cells</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">,</span>
         <span class="n">point_data</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="p">,</span>
