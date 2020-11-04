@@ -385,6 +385,7 @@ The generated mesh can be visualized in Python with :mod:`pyvista`.
     p = pyvista.Plotter(window_size=(800, 800))
     p.add_mesh(
         mesh=pyvista.read("mesh.msh"),
+        scalars="gmsh:physical",
         stitle="Materials",
         show_scalar_bar=True,
         show_edges=True,
@@ -416,7 +417,7 @@ The generated mesh can be visualized in Python with :mod:`pyvista`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.041 seconds)
+   **Total running time of the script:** ( 0 minutes  1.097 seconds)
 
 
 .. _sphx_glr_download_examples_co2_leakage_along_a_fault_1_generate_mesh_in_python_with_gmsh.py:
